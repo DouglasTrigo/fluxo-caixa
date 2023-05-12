@@ -1,8 +1,8 @@
 package com.fluxo.caixa.saldo.service;
 
-import java.math.BigDecimal;
+import com.fluxo.caixa.saldo.model.SaldoPorDataResponse;
 
 public interface SaldoService {
 
-    BigDecimal consultaSaldoConsolidadePorDia(String data);
+    SaldoPorDataResponse consultaSaldoConsolidadePorDia(String data);
 }

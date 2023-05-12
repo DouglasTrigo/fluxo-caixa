@@ -13,8 +13,8 @@ Backend da aplicação Fluxo de Caixa constrúida com microsserviços
 - Mapstruct
 - MYSQL
 - Docker
-- Junit (em breve)
-- Mockito (em breve)
+- Junit
+- Mockito
 
 ## Informações
 
@@ -23,6 +23,22 @@ A aplicação é composta por três microsserviços, o microsserviço debito, cr
 Abaixo o desenho de como a aplcação está atualmente
 
 ![](https://user-images.githubusercontent.com/11529081/237992889-8e39d548-db14-4e35-929d-95ee618a788d.PNG)
+
+## Testes unitários
+
+O projeto contepla testes unitários conforme imagens abaixo
+
+### Testes unitários credito
+
+![](https://user-images.githubusercontent.com/11529081/238053342-b48e2cea-654e-4210-a5b6-c18cf436602d.PNG)
+
+### Testes unitários debito
+
+![](https://user-images.githubusercontent.com/11529081/238053337-29f7aaac-afdf-4927-a1ef-50abd59602af.PNG)
+
+### Testes unitários saldo
+
+![](https://user-images.githubusercontent.com/11529081/238053344-cb57a3e6-abcc-4e20-b76e-773bac57701d.PNG)
 
 ## Pré requisito para executar localmente
 

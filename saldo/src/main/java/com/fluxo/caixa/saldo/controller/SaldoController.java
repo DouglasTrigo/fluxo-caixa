@@ -1,5 +1,6 @@
 package com.fluxo.caixa.saldo.controller;
 
+import com.fluxo.caixa.saldo.model.SaldoPorDataResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -16,6 +17,6 @@ public interface SaldoController {
     @ApiResponses({
             @ApiResponse(code = 200, message = "Ok", response = BigDecimal.class),
             @ApiResponse(code = 400, message = "Bad Request")})
-    ResponseEntity<BigDecimal> consultaSaldoPorData(String data);
+    ResponseEntity<SaldoPorDataResponse> consultaSaldoPorData(String data);
 
 }

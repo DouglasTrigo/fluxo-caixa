@@ -4,6 +4,7 @@ import com.fluxo.caixa.debito.client.SaldoClient;
 import com.fluxo.caixa.debito.dto.ValorTotalDeDebitosResponse;
 import com.fluxo.caixa.debito.exception.SaldoInsuficienteException;
 import com.fluxo.caixa.debito.model.Debito;
+import com.fluxo.caixa.debito.model.SaldoPorDataResponse;
 import com.fluxo.caixa.debito.repository.DeditoRepositoryImpl;
 import com.fluxo.caixa.debito.service.DeditoService;
 import com.fluxo.caixa.debito.util.BigDecimalUtil;
@@ -26,10 +27,10 @@ public class DeditoServiceImpl implements DeditoService {
     @Override
     public Debito debitarValor(Debito debito) {
 
-        BigDecimal saldoDoDia = saldoClient.getSaldoDoDia();
+        SaldoPorDataResponse saldoDoDia = saldoClient.getSaldoDoDia();
         log.info("#### Saldo do dia " + saldoDoDia + " ####");
 
-        if(BigDecimalUtil.isPrimeiroNumeroMaiorQueOSegundo(debito.getValor(), saldoDoDia)){
+        if(BigDecimalUtil.isPrimeiroNumeroMaiorQueOSegundo(debito.getValor(), saldoDoDia.getSaldo())){
             log.warn("#### Saldo insuficiente para devitar valor ####");
             throw new SaldoInsuficienteException();
         }

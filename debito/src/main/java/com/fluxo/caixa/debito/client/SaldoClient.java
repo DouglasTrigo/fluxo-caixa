@@ -1,9 +1,9 @@
 package com.fluxo.caixa.debito.client;
 
-import java.math.BigDecimal;
+import com.fluxo.caixa.debito.model.SaldoPorDataResponse;
 
 public interface SaldoClient {
 
-    BigDecimal getSaldoDoDia();
+    SaldoPorDataResponse getSaldoDoDia();
 
 }
