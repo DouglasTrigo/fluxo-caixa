@@ -1,0 +1,70 @@
+version: '3'
+services:
+  db-mysql-credito:
+    image: mysql:5.7
+    container_name: db-mysql-credito
+    restart: always
+    environment:
+      MYSQL_USER: credito
+      MYSQL_PASSWORD: credito
+      MYSQL_ROOT_PASSWORD: senha-credito
+      MYSQL_DATABASE: banco-credito
+      MYSQL_TCP_PORT: 3306
+    ports:
+      - "3306:3306"
+    networks:
+      - fluxo-caixa
+    volumes:
+      - /mysql-dados-credito:/var/lib/mysql
+  db-mysql-debito:
+    image: mysql:5.7
+    container_name: db-mysql-debito
+    restart: always
+    environment:
+      MYSQL_USER: debito
+      MYSQL_PASSWORD: debito
+      MYSQL_ROOT_PASSWORD: senha-debito
+      MYSQL_DATABASE: banco-debito
+      MYSQL_TCP_PORT: 3307
+    ports:
+      - "3307:3307"
+    networks:
+      - fluxo-caixa
+    volumes:
+      - /mysql-dados-debito:/var/lib/mysql
+  ms-credito:
+    image: ms-credito
+    container_name: ms-credito
+    environment:
+      - DB_CREDITO=db-mysql-credito
+    ports:
+      - 8080:8080
+    networks:
+      - fluxo-caixa
+    depends_on:
+      - "db-mysql-credito"
+  ms-debito:
+    image: ms-debito
+    container_name: ms-debito
+    environment:
+      - DB_DEBITO=db-mysql-debito
+      - MS_SALDO=ms-saldo
+    ports:
+      - 8081:8081
+    networks:
+      - fluxo-caixa
+    depends_on:
+      - "db-mysql-debito"
+  ms-saldo:
+    image: ms-saldo
+    container_name: ms-saldo
+    environment:
+      - MS_CREDITO=ms-credito
+      - MS_DEBITO=ms-debito
+    ports:
+      - 8082:8082
+    networks:
+      - fluxo-caixa
+networks:
+  fluxo-caixa:
+    driver: bridge

@@ -1,0 +1,18 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: saldo
+
+jackson:
+  date-format: dd-MM-yyyy
+
+servicos:
+  debito:
+    url: http://${MS_DEBITO:localhost}:8081
+    usuario: fluxo-caixa
+    senha: minha-senha
+  credito:
+    url: http://${MS_CREDITO:localhost}:8080
+    usuario: fluxo-caixa
+    senha: minha-senha

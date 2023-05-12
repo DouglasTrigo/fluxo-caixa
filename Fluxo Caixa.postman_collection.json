@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "03906382-d23a-4e5b-a1e1-2517edbc24e4",
+		"name": "Fluxo Caixa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24110046"
+	},
+	"item": [
+		{
+			"name": "Credito",
+			"item": [
+				{
+					"name": "Creditar valor",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "minha-senha",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "fluxo-caixa",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"valor\": 100.00,\r\n    \"descricao\" : \"Outra coisa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/credito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"credito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Total creditado por data",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "minha-senha",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "fluxo-caixa",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/credito/total-por-data/12-05-2023",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"credito",
+								"total-por-data",
+								"12-05-2023"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Limpar todos os créditos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "minha-senha",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "fluxo-caixa",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/credito/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"credito",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Débito",
+			"item": [
+				{
+					"name": "Debitar valor",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "minha-senha",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "fluxo-caixa",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"valor\": 10.00,\r\n    \"descricao\" : \"Retirada de valor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/v1/debito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"v1",
+								"debito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Total debitado por data",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "minha-senha",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "fluxo-caixa",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/v1/debito/total-por-data/12-05-2023",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"v1",
+								"debito",
+								"total-por-data",
+								"12-05-2023"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Limpar todos os débitos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "minha-senha",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "fluxo-caixa",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/v1/debito/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"v1",
+								"debito",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Saldo",
+			"item": [
+				{
+					"name": "Saldo",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "minha-senha",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "fluxo-caixa",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/v1/saldo/por-data/12-05-2023",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"saldo",
+								"por-data",
+								"12-05-2023"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

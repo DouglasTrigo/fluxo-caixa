@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: credito
+  datasource:
+    url: jdbc:mysql://${DB_CREDITO:localhost}:3306/banco-credito?createDatabaseIfNotExist=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: senha-credito
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+

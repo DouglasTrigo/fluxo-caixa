@@ -1,0 +1,22 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: debito
+  datasource:
+    url: jdbc:mysql://${DB_DEBITO:localhost}:3307/banco-debito?createDatabaseIfNotExist=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: senha-debito
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+servicos:
+  saldo:
+    url: http://${MS_SALDO:localhost}:8082
+    usuario: fluxo-caixa
+    senha: minha-senha
